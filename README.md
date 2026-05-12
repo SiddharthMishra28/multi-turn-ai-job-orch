@@ -4,3 +4,7 @@ Implementation skeleton and architecture for a static Next.js client-side orches
 
 ## Blocker
 This environment cannot install npm packages from npm registry (HTTP 403), so Next.js dependencies cannot be fetched. The repository therefore includes full source code structure and modules, but build/test commands requiring package install cannot run here.
+
+
+## GitHub Pages CI/CD
+Use `.github/workflows/deploy-pages.yml` to build and deploy static export output (`out/`) to GitHub Pages on pushes to `main`. It sets `NEXT_PUBLIC_BASE_PATH` to `/<repo-name>` for project pages compatibility.
