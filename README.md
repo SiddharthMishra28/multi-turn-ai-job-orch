@@ -16,7 +16,7 @@ Use `.github/workflows/deploy-pages.yml` to build and deploy static export outpu
 - Pages deployment only runs from the repository default branch in this workflow.
 - Repository Settings must have **Actions enabled** and **Pages source set to GitHub Actions**.
 
-This workflow now builds on every pushed commit (all branches) and automatically deploys the latest default-branch commit to GitHub Pages.
+This workflow now builds on every push to `main` or `master` and then deploys to GitHub Pages in the same run.
 
 
 ### CI error: `next: not found`
