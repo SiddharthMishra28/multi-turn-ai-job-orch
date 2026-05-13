@@ -11,8 +11,14 @@ Use `.github/workflows/deploy-pages.yml` to build and deploy static export outpu
 
 
 ### Why builds might not appear
+- If your repo has never had Pages configured, workflow uses `actions/configure-pages` with `enablement: true` to auto-enable it.
 - GitHub Actions only runs after **pushes to GitHub** (local commits alone do not trigger workflows).
 - Pages deployment only runs from the repository default branch in this workflow.
 - Repository Settings must have **Actions enabled** and **Pages source set to GitHub Actions**.
 
+This workflow builds on pushes to `main`/`master` and deploys only from those branches, which avoids GitHub Pages environment-protection rejections on feature branches.
+
+
+### CI error: `next: not found`
+This means dependencies were never installed (or `next` is missing from `dependencies`). The fix is to keep `next`, `react`, and `react-dom` in `dependencies` and run install before `npm run build` in CI.
 This workflow now builds on every pushed commit (all branches) and automatically deploys the latest default-branch commit to GitHub Pages.
