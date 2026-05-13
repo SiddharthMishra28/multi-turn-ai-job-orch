@@ -8,3 +8,11 @@ This environment cannot install npm packages from npm registry (HTTP 403), so Ne
 
 ## GitHub Pages CI/CD
 Use `.github/workflows/deploy-pages.yml` to build and deploy static export output (`out/`) to GitHub Pages on pushes to `main`. It sets `NEXT_PUBLIC_BASE_PATH` to `/<repo-name>` for project pages compatibility.
+
+
+### Why builds might not appear
+- GitHub Actions only runs after **pushes to GitHub** (local commits alone do not trigger workflows).
+- Pages deployment only runs from the repository default branch in this workflow.
+- Repository Settings must have **Actions enabled** and **Pages source set to GitHub Actions**.
+
+This workflow now builds on every pushed commit (all branches) and automatically deploys the latest default-branch commit to GitHub Pages.
