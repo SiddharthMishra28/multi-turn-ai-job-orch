@@ -19,4 +19,5 @@ Use `.github/workflows/deploy-pages.yml` to build and deploy static export outpu
 This workflow now builds on every pushed commit (all branches) and automatically deploys the latest default-branch commit to GitHub Pages.
 
 
-CI note: `package-lock.json` is committed so `npm ci` works in GitHub Actions.
+### CI error: `next: not found`
+This means dependencies were never installed (or `next` is missing from `dependencies`). The fix is to keep `next`, `react`, and `react-dom` in `dependencies` and run install before `npm run build` in CI.
