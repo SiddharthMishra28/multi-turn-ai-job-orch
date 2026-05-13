@@ -11,6 +11,7 @@ Use `.github/workflows/deploy-pages.yml` to build and deploy static export outpu
 
 
 ### Why builds might not appear
+- If your repo has never had Pages configured, workflow uses `actions/configure-pages` with `enablement: true` to auto-enable it.
 - GitHub Actions only runs after **pushes to GitHub** (local commits alone do not trigger workflows).
 - Pages deployment only runs from the repository default branch in this workflow.
 - Repository Settings must have **Actions enabled** and **Pages source set to GitHub Actions**.
